@@ -1,11 +1,309 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>Awaken to Hope</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awaken to Hope | Christian Faith, Hope & Inspiration</title>
+    <meta name="description" content="Awaken to Hope – discover Christian faith, biblical hope, spiritual inspiration, and God's promises. Find peace, strength, and eternal hope in Christ.">
+    <meta name="keywords" content="Christian hope, awaken to hope, faith in Christ, Bible inspiration, Christian encouragement, spiritual awakening, hope in God, Jeremiah 29:11, Christian website">
+    <meta name="author" content="Awaken to Hope">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Awaken to Hope | Christian Faith & Hope">
+    <meta property="og:description" content="Embrace the light of faith and eternal hope in Christ. Inspiring Bible verses and messages of peace.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Awaken+to+Hope">
+    <meta property="og:url" content="https://awakentohope.click">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Awaken to Hope | Christian Inspiration">
+    <meta name="twitter:description" content="Discover hope through faith in Jesus Christ.">
+
+    <!-- Hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://awakentohope.click/">
+    <link rel="alternate" hreflang="ru" href="https://awakentohope.click/ru/">
+    <link rel="alternate" hreflang="uk" href="https://awakentohope.click/uk/">
+    <link rel="alternate" hreflang="x-default" href="https://awakentohope.click/">
+
+    <!-- Favicon (add your own) -->
+    <link rel="icon" href="https://via.placeholder.com/32?text=A2H" type="image/png">
+
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --accent: #ffd700;
+            --text: #333;
+            --light: #f0f4f8;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(to bottom, var(--light), #d9e2ec);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://via.placeholder.com/1920x1080?text=Serene+Christian+Dawn') center/cover no-repeat;
+            color: white;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 10;
+        }
+
+        .lang-switcher select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        header h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin: 0;
+            z-index: 1;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+
+        section {
+            padding: 80px 5%;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #message { background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+        h2 { color: var(--primary); font-size: 2.8rem; }
+
+        .quote-card {
+            background: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .quote-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(74,144,226,0.2); }
+
+        form {
+            max-width: 600px;
+            margin: 40px auto;
+            display: grid;
+            gap: 15px;
+        }
+
+        input, textarea, button {
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #357abd; }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .particles { position: absolute; inset: 0; pointer-events: none; }
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: float 12s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0) scale(1); opacity: 0.4; }
+            50% { transform: translateY(-120vh) scale(1.2); opacity: 0.9; }
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; }
+            header h1 { font-size: 3.5rem; }
+            section { padding: 60px 5%; }
+        }
+    </style>
 </head>
 <body>
-  <h1>Сайт в разработке</h1>
-  <p>Добро пожаловать!</p>
+
+    <header>
+        <nav>
+            <div class="lang-switcher">
+                <select id="languageSelect" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                </select>
+            </div>
+        </nav>
+
+        <h1 data-key="title">Awaken to Hope</h1>
+        <p data-key="subtitle">Discover the light of Christian faith and embrace eternal hope in Christ.</p>
+
+        <div class="particles"></div>
+    </header>
+
+    <section id="message">
+        <h2 data-key="messageTitle">Our Message of Hope</h2>
+        <p data-key="messageText">In times of uncertainty, awaken to the unshakable hope found in Jesus Christ. Let His Word renew your strength, fill your heart with peace, and guide you toward a future filled with purpose and God's love.</p>
+    </section>
+
+    <section id="quotes">
+        <h2 data-key="quotesTitle">Inspiring Bible Verses</h2>
+        <div class="quote-card">
+            <blockquote data-key="quote1">"For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future."</blockquote>
+            <cite>Jeremiah 29:11</cite>
+        </div>
+        <div class="quote-card">
+            <blockquote data-key="quote2">"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint."</blockquote>
+            <cite>Isaiah 40:31</cite>
+        </div>
+        <div class="quote-card">
+            <blockquote data-key="quote3">"May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit."</blockquote>
+            <cite>Romans 15:13</cite>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 data-key="contactTitle">Get in Touch</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" data-key="sendButton">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Awaken to Hope. All rights reserved.</p>
+        <p>awakentohope.click | Christian Faith • Hope • Inspiration</p>
+    </footer>
+
+    <script>
+        // Floating particles
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.width = p.style.height = Math.random() * 8 + 4 + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDelay = Math.random() * 6 + 's';
+            p.style.animationDuration = Math.random() * 10 + 8 + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        // Simple multilingual support (for demo - in production use better i18n or separate pages/subfolders)
+        const translations = {
+            en: {
+                title: "Awaken to Hope",
+                subtitle: "Discover the light of Christian faith and embrace eternal hope in Christ.",
+                messageTitle: "Our Message of Hope",
+                messageText: "In times of uncertainty, awaken to the unshakable hope found in Jesus Christ. Let His Word renew your strength, fill your heart with peace, and guide you toward a future filled with purpose and God's love.",
+                quotesTitle: "Inspiring Bible Verses",
+                quote1: '"For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future."',
+                quote2: '"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint."',
+                quote3: '"May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit."',
+                contactTitle: "Get in Touch",
+                sendButton: "Send Message"
+            },
+            ru: {
+                title: "Пробудись к Надежде",
+                subtitle: "Открой свет христианской веры и прими вечную надежду во Христе.",
+                messageTitle: "Наше Послание Надежды",
+                messageText: "В времена неопределённости пробудись к непоколебимой надежде, найденной во Иисусе Христе. Пусть Его Слово обновит твои силы, наполнит сердце миром и направит к будущему, полному цели и Божьей любви.",
+                quotesTitle: "Вдохновляющие Библейские Стихи",
+                quote1: '«Ибо только Я знаю намерения, какие имею о вас, говорит Господь, намерения во благо, а не на зло, чтобы дать вам будущность и надежду.»',
+                quote2: '«А надеющиеся на Господа обновят силы: поднимут крылья, как орлы, будут бежать — и не устанут, пойдут — и не утомятся.»',
+                quote3: '«Бог же надежды да исполнит вас всякой радости и мира в вере, дабы вы, силою Духа Святаго, обогатились надеждою.»',
+                contactTitle: "Связаться с нами",
+                sendButton: "Отправить сообщение"
+            },
+            uk: {
+                title: "Пробудись до Надії",
+                subtitle: "Відкрий світло християнської віри та прийми вічну надію в Христі.",
+                messageTitle: "Наше Повідомлення Надії",
+                messageText: "У часи невизначеності пробудися до непохитної надії, знайденої в Ісусі Христі. Нехай Його Слово відновить твої сили, наповнить серце миром і спрямувати до майбутнього, сповненого мети та Божої любові.",
+                quotesTitle: "Надихаючі Біблійні Вірші",
+                quote1: '«Бо Я знаю плани, які маю щодо вас, — слово Господнє, — плани на добро, а не на зло, щоб дати вам будучність та надію.»',
+                quote2: '«А ті, що надію покладають на Господа, обновлять силу, підіймуть крила, немов орли, будуть бігти — і не потомляться, будуть ходити — і не знесиліють.»',
+                quote3: '«Бог же надії нехай наповнить вас усякою радістю та миром у вірі, щоб ви силою Духа Святого багатіли надією.»',
+                contactTitle: "Зв'язатися з нами",
+                sendButton: "Надіслати повідомлення"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            // In real production: redirect to /ru/ or /uk/ or load different content
+            // For demo we change text in place
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Load saved language or detect browser
+        const savedLang = localStorage.getItem('preferredLang') ||
+                          navigator.language.split('-')[0] ||
+                          'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+
+        // Form placeholder
+        document.querySelector('form').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Message sent! Дякуємо / Спасибо / Thank you!');
+        });
+    </script>
 </body>
 </html>
