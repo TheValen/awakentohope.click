@@ -5,30 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awaken to Hope | Christian Faith, Hope & Inspiration</title>
     <meta name="description" content="Awaken to Hope – discover Christian faith, biblical hope, spiritual inspiration, and God's promises. Find peace, strength, and eternal hope in Christ.">
-    <meta name="keywords" content="Christian hope, awaken to hope, faith in Christ, Bible inspiration, Christian encouragement, spiritual awakening, hope in God, Jeremiah 29:11, Christian website">
-    <meta name="author" content="Awaken to Hope">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Christian hope, awaken to hope, faith in Christ, Bible inspiration, Christian encouragement, spiritual awakening, hope in God, Jeremiah 29:11">
 
-    <!-- Open Graph / Social Sharing -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Awaken to Hope | Christian Faith & Hope">
-    <meta property="og:description" content="Embrace the light of faith and eternal hope in Christ. Inspiring Bible verses and messages of peace.">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Awaken+to+Hope">
+    <meta property="og:description" content="Embrace the light of faith and eternal hope in Christ.">
+    <meta property="og:image" content="/images/hero-dawn.webp">
     <meta property="og:url" content="https://awakentohope.click">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Awaken to Hope | Christian Inspiration">
-    <meta name="twitter:description" content="Discover hope through faith in Jesus Christ.">
-
-    <!-- Hreflang for multilingual SEO -->
-    <link rel="alternate" hreflang="en" href="https://awakentohope.click/">
-    <link rel="alternate" hreflang="ru" href="https://awakentohope.click/ru/">
-    <link rel="alternate" hreflang="uk" href="https://awakentohope.click/uk/">
-    <link rel="alternate" hreflang="x-default" href="https://awakentohope.click/">
-
-    <!-- Favicon (add your own) -->
-    <link rel="icon" href="https://via.placeholder.com/32?text=A2H" type="image/png">
+    <!-- Favicon и apple touch -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <style>
         :root {
@@ -38,9 +27,14 @@
             --light: #f0f4f8;
         }
 
-        body {
+        * {
             margin: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
             background: linear-gradient(to bottom, var(--light), #d9e2ec);
             color: var(--text);
             line-height: 1.6;
@@ -49,105 +43,151 @@
         header {
             position: relative;
             height: 100vh;
+            min-height: 640px;
+            background: url('/images/hero-dawn.webp') center/cover no-repeat fixed;
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: url('https://via.placeholder.com/1920x1080?text=Serene+Christian+Dawn') center/cover no-repeat;
-            color: white;
         }
 
         header::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.35);
+            background: rgba(0,0,0,0.38);
+            z-index: 0;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
         }
 
         nav {
             position: absolute;
-            top: 20px;
+            top: 24px;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 0 5%;
-            z-index: 10;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .lang-switcher select {
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
             border: none;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.92);
             font-size: 1rem;
             cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
-        header h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            margin: 0;
-            z-index: 1;
-            animation: fadeIn 2s ease;
+        h1 {
+            font-size: clamp(3.4rem, 9vw, 5.6rem);
+            font-weight: 800;
+            margin-bottom: 0.3em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
-        @keyframes fadeIn { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        header p {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            max-width: 720px;
+            opacity: 0.96;
+        }
 
         section {
-            padding: 80px 5%;
+            padding: 100px 5% 120px;
             max-width: 1100px;
             margin: auto;
-            text-align: center;
         }
 
-        #message { background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        #message {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 5%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.09);
+        }
 
-        h2 { color: var(--primary); font-size: 2.8rem; }
+        h2 {
+            color: var(--primary);
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            margin-bottom: 1.2em;
+        }
 
         .quote-card {
             background: white;
-            padding: 30px;
-            margin: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 32px;
+            margin: 24px 0;
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
         }
 
-        .quote-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(74,144,226,0.2); }
+        .quote-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(74,144,226,0.18);
+        }
+
+        blockquote {
+            font-style: italic;
+            font-size: 1.24rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        cite {
+            display: block;
+            margin-top: 1.2em;
+            color: var(--primary);
+            font-weight: 600;
+        }
 
         form {
-            max-width: 600px;
-            margin: 40px auto;
+            max-width: 640px;
+            margin: 48px auto;
             display: grid;
-            gap: 15px;
+            gap: 18px;
         }
 
         input, textarea, button {
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
+            padding: 16px;
             font-size: 1.1rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
         }
 
         button {
             background: var(--primary);
             color: white;
             border: none;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
 
-        button:hover { background: #357abd; }
+        button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
 
         footer {
-            background: #222;
+            background: #1a1a1a;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 60px 20px 40px;
         }
 
-        .particles { position: absolute; inset: 0; pointer-events: none; }
+        /* particles */
+        .particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .particle {
             position: absolute;
             background: rgba(255,255,255,0.8);
@@ -157,13 +197,12 @@
 
         @keyframes float {
             0%,100% { transform: translateY(0) scale(1); opacity: 0.4; }
-            50% { transform: translateY(-120vh) scale(1.2); opacity: 0.9; }
+            50%     { transform: translateY(-140vh) scale(1.3); opacity: 0.9; }
         }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; }
-            header h1 { font-size: 3.5rem; }
-            section { padding: 60px 5%; }
+            section { padding: 70px 5% 90px; }
+            nav { justify-content: center; }
         }
     </style>
 </head>
@@ -193,14 +232,17 @@
 
     <section id="quotes">
         <h2 data-key="quotesTitle">Inspiring Bible Verses</h2>
+
         <div class="quote-card">
             <blockquote data-key="quote1">"For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future."</blockquote>
             <cite>Jeremiah 29:11</cite>
         </div>
+
         <div class="quote-card">
             <blockquote data-key="quote2">"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint."</blockquote>
             <cite>Isaiah 40:31</cite>
         </div>
+
         <div class="quote-card">
             <blockquote data-key="quote3">"May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit."</blockquote>
             <cite>Romans 15:13</cite>
@@ -212,30 +254,32 @@
         <form>
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <textarea placeholder="Your Message" rows="6" required></textarea>
             <button type="submit" data-key="sendButton">Send Message</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2026 Awaken to Hope. All rights reserved.</p>
-        <p>awakentohope.click | Christian Faith • Hope • Inspiration</p>
+        <p>© 2026 Awaken to Hope</p>
+        <p>awakentohope.click • Christian Faith • Hope • Inspiration</p>
     </footer>
 
     <script>
-        // Floating particles
+        // particles
         const particlesContainer = document.querySelector('.particles');
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 28; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
-            p.style.width = p.style.height = Math.random() * 8 + 4 + 'px';
+            p.style.width = p.style.height = Math.random() * 8 + 5 + 'px';
             p.style.left = Math.random() * 100 + 'vw';
-            p.style.animationDelay = Math.random() * 6 + 's';
-            p.style.animationDuration = Math.random() * 10 + 8 + 's';
+            p.style.animationDelay = Math.random() * 8 + 's';
+            p.style.animationDuration = Math.random() * 12 + 10 + 's';
             particlesContainer.appendChild(p);
         }
 
-        // Simple multilingual support (for demo - in production use better i18n or separate pages/subfolders)
+        // =============================================
+        //               Многоязычность
+        // =============================================
         const translations = {
             en: {
                 title: "Awaken to Hope",
@@ -279,30 +323,27 @@
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.dataset.key;
-                if (translations[lang][key]) {
+                const text = translations[lang]?.[key];
+                if (text) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
+                        el.placeholder = text;
                     } else {
-                        el.textContent = translations[lang][key];
+                        el.textContent = text;
                     }
                 }
             });
-            // In real production: redirect to /ru/ or /uk/ or load different content
-            // For demo we change text in place
-            localStorage.setItem('preferredLang', lang);
+            localStorage.setItem('lang', lang);
         }
 
-        // Load saved language or detect browser
-        const savedLang = localStorage.getItem('preferredLang') ||
-                          navigator.language.split('-')[0] ||
-                          'en';
+        // load language
+        const savedLang = localStorage.getItem('lang') || navigator.language.split('-')[0] || 'en';
         document.getElementById('languageSelect').value = savedLang;
         changeLanguage(savedLang);
 
-        // Form placeholder
+        // form
         document.querySelector('form').addEventListener('submit', e => {
             e.preventDefault();
-            alert('Message sent! Дякуємо / Спасибо / Thank you!');
+            alert('Дякую! / Спасибо! / Thank you!');
         });
     </script>
 </body>
